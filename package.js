@@ -19,6 +19,10 @@ Package.onUse(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
   api.use('jsep:trello@0.0.2', ['client', 'server']);
+  api.use([
+    'practicalmeteor:loglevel@1.2.0_2',
+    'practicalmeteor:chai@2.1.0_1'
+  ]);
 
   api.use('http', ['client', 'server']);
 

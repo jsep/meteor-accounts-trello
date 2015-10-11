@@ -1,3 +1,5 @@
+log = new ObjectLogger('AccountsTrello', 'debug');
+
 Accounts.oauth.registerService('trello');
 
 if (Meteor.isClient) {
@@ -14,6 +16,7 @@ if (Meteor.isClient) {
 } else {
   var autopublishedFields = _.map( Trello.whitelistedFields, function (subfield) {
     return 'services.trello.' + subfield; });
+  log.debug('autopublishedFields=' + autopublishedFields);
 
   Accounts.addAutopublishFields({
     forLoggedInUser: autopublishedFields,
