@@ -13,7 +13,7 @@ if (Meteor.isClient) {
   };
 } else {
   var autopublishedFields = _.map( Trello.whitelistedFields, function (subfield) {
-    return 'services.twitter.' + subfield; });
+    return 'services.trello.' + subfield; });
 
   Accounts.addAutopublishFields({
     forLoggedInUser: autopublishedFields,

@@ -1,30 +1,26 @@
 Package.describe({
-  name: "jsep:accounts-trello",
-  summary: "Login Trello",
-  version: "0.0.1"
+  name: 'jsep:accounts-trello',
+  version: '0.0.1',
+  // Brief, one-line summary of the package.
+  summary: 'Login with Trello',
+  // URL to the Git repository containing the source code for this package.
+  git: 'https://github.com/jsep/meteor-accounts-trello.git',
+  // By default, Meteor will default to using README.md for documentation.
+  // To avoid submitting documentation, set this field to null.
+  documentation: 'README.md'
 });
 
 Package.onUse(function(api) {
-  api.use('oauth1', ['client', 'server']);
-  api.use('oauth', ['client', 'server']);
-  api.use('http', ['server']);
-  api.use('underscore', 'client');
-  api.use('templating', 'client');
-  api.use('random', 'client');
-  api.use('service-configuration', ['client', 'server']);
+  api.versionsFrom('1.0');
 
+  api.use('underscore', ['server']);
   api.use('accounts-base', ['client', 'server']);
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
+  api.use('jsep:trello@0.0.2', ['client', 'server']);
 
-  api.export('Trello');
+  api.use('http', ['client', 'server']);
 
-  api.addFiles(
-    ['trello_configure.html', 'trello_configure.js'],
-    'client');
-
-  api.addFiles('trello_server.js', 'server');
-  api.addFiles('trello_client.js', 'client');
-  api.addFiles('trello_accounts.js', 'client');
+  api.addFiles("trello.js");
 });
