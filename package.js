@@ -23,4 +23,5 @@ Package.onUse(function(api) {
   api.use('http', ['client', 'server']);
 
   api.addFiles("trello.js");
+  api.addFiles("trello_link.js", "client");
 });
