@@ -13,6 +13,11 @@ Package.onUse(function(api) {
   api.use('random', 'client');
   api.use('service-configuration', ['client', 'server']);
 
+  api.use('accounts-base', ['client', 'server']);
+  // Export Accounts (etc) to packages using this one.
+  api.imply('accounts-base', ['client', 'server']);
+  api.use('accounts-oauth', ['client', 'server']);
+
   api.export('Trello');
 
   api.addFiles(
@@ -21,4 +26,5 @@ Package.onUse(function(api) {
 
   api.addFiles('trello_server.js', 'server');
   api.addFiles('trello_client.js', 'client');
+  api.addFiles('trello_accounts.js', 'client');
 });
